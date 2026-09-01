@@ -131,48 +131,6 @@
   .hero p.lede{max-width:520px;font-size:1.08rem;color:var(--muted);margin-bottom:34px;}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
 
-  /* --- Ticket / Bon de transit --- */
-  .manifest-wrap{position:relative;display:flex;justify-content:center;}
-  .manifest{
-    position:relative;
-    background:var(--paper);
-    color:var(--ink);
-    width:100%;max-width:460px;
-    border-radius:6px;
-    padding:26px 26px 22px;
-    transform:rotate(-3deg);
-    box-shadow:0 30px 60px -12px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.04);
-  }
-  .manifest::before,.manifest::after{
-    content:'';position:absolute;top:50%;width:26px;height:26px;
-    background:var(--ink);border-radius:50%;transform:translateY(-50%);
-  }
-  .manifest::before{left:-13px;}
-  .manifest::after{right:-13px;}
-
-  .manifest-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1.5px dashed rgba(11,32,39,0.25);padding-bottom:14px;margin-bottom:16px;}
-  .manifest-top .label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(11,32,39,0.55);}
-  .manifest-top .value{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;font-weight:600;margin-top:3px;}
-
-  .manifest-route{padding:6px 0 2px;}
-  .manifest-route svg{width:100%;height:auto;display:block;}
-
-  .manifest-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;border-top:1.5px dashed rgba(11,32,39,0.25);padding-top:14px;}
-  .manifest-bottom .label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(11,32,39,0.55);}
-  .manifest-bottom .value{font-weight:700;font-size:0.95rem;}
-
-  .stamp{
-    position:absolute;bottom:-18px;right:14px;
-    width:92px;height:92px;border-radius:50%;
-    border:2px dashed var(--rust);
-    display:flex;align-items:center;justify-content:center;
-    transform:rotate(-14deg);
-    background:rgba(243,238,226,0.9);
-  }
-  .stamp-inner{text-align:center;color:var(--rust);}
-  .stamp-inner .check{font-size:1.3rem;line-height:1;font-weight:700;}
-  .stamp-inner .txt{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.08em;font-weight:600;margin-top:2px;text-transform:uppercase;}
-
   /* ============ STATS ============ */
   .stats{padding:56px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
   .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
@@ -183,11 +141,16 @@
   /* ============ SECTIONS ============ */
   section{padding:76px 0;}
   .section-eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--teal-light);margin-bottom:12px;display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-light);
+    margin-bottom:12px;
+    display:block;
   }
   .section-header{max-width:640px;margin-bottom:48px;}
-  .section-header p{color:var(--muted);margin-top:12px;font-size:1.03rem;}
+  .section-header p{color:var(--muted);margin-top:12px;font-size:1.03rem;line-height:1.7;}
 
   /* ============ CATÉGORIES ============ */
   .categories-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
@@ -197,7 +160,7 @@
   .category-icon{width:42px;height:42px;border-radius:10px;background:rgba(90,194,192,0.10);margin-bottom:16px;display:flex;align-items:center;justify-content:center;}
   .category-icon svg{width:21px;height:21px;stroke:var(--teal-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   .category-card h3{font-weight:700;font-size:1rem;margin-bottom:6px;}
-  .category-card p{font-size:0.85rem;color:var(--muted);}
+  .category-card p{font-size:0.85rem;color:var(--muted);line-height:1.5;}
 
   /* ============ RÉSEAU INTERNATIONAL ============ */
   .globe-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -222,9 +185,10 @@
     display:grid;grid-template-columns:64px 1fr 1.4fr;gap:28px;align-items:start;
     padding:32px 0;border-bottom:1px solid var(--border);
   }
+  .feature-row:last-child{border-bottom:none;}
   .feature-row .tag{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--amber);padding-top:4px;}
   .feature-row h3{font-weight:700;font-size:1.15rem;}
-  .feature-row p{color:var(--muted);font-size:0.95rem;max-width:480px;}
+  .feature-row p{color:var(--muted);font-size:0.95rem;max-width:480px;line-height:1.7;}
 
   /* ============ CTA ============ */
   .cta-section{
@@ -238,17 +202,24 @@
     pointer-events:none;
   }
   .cta-section h2{margin-bottom:12px;position:relative;}
-  .cta-section p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:1.05rem;position:relative;}
+  .cta-section p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:1.05rem;position:relative;line-height:1.7;}
   .cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;position:relative;}
   .cta-link{color:var(--teal-light);font-weight:600;}
   .cta-link:hover{color:var(--amber);}
 
   /* ============ FOOTER ============ */
-  footer{border-top:1px solid rgba(255,255,255,0.06);padding:36px 0;}
+  footer{border-top:1px solid rgba(255,255,255,0.06);padding:28px 0;}
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
-  .footer-links{display:flex;gap:28px;font-size:0.86rem;color:var(--muted);}
+  .footer-left{display:flex;align-items:center;gap:24px;}
+  .footer-left .logo{font-size:0.9rem;}
+  .footer-links{display:flex;gap:24px;font-size:0.82rem;color:var(--muted);}
   .footer-links a:hover{color:var(--paper);}
-  .footer-copy{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--muted);}
+  .footer-right{display:flex;align-items:center;gap:20px;}
+  .footer-right .mono{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);}
+  .footer-right a{color:var(--muted);transition:color 0.2s;}
+  .footer-right a:hover{color:var(--teal-light);}
+  .footer-divider{color:var(--border);font-size:0.7rem;}
+  .footer-copy{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);}
 
   /* ============ RESPONSIVE ============ */
   @media (max-width:960px){
@@ -257,6 +228,7 @@
     .categories-grid{grid-template-columns:repeat(2,1fr);}
     .feature-row{grid-template-columns:48px 1fr;}
     .feature-row p{grid-column:2/3;max-width:none;}
+    .globe-section .container > div{grid-template-columns:1fr !important;gap:32px;}
   }
   @media (max-width:820px){
     .nav-links{
@@ -267,14 +239,19 @@
     .nav-links.open{display:flex;}
     .mobile-toggle{display:block;}
     .header-actions .btn-outline{display:none;}
+    .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:12px;}
+    .footer-left{flex-direction:column;gap:12px;}
+    .footer-right{flex-wrap:wrap;justify-content:center;}
   }
   @media (max-width:480px){
     .container{padding:0 16px;}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .categories-grid{grid-template-columns:1fr;}
     .cta-section{padding:40px 22px;}
-    .manifest{padding:22px 18px 20px;}
-    .footer-inner{flex-direction:column;text-align:center;}
+    .footer-inner{flex-direction:column;text-align:center;gap:10px;}
+    .footer-left{flex-direction:column;gap:10px;}
+    .footer-right{flex-direction:column;gap:6px;}
+    .footer-divider{display:none;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -288,7 +265,7 @@
 <!-- ===== HEADER ===== -->
 <header>
   <div class="container header-inner">
-    <a href="/"  class="logo">
+    <a href="/" class="logo">
       <span class="logo-mark">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
       </span>
@@ -316,92 +293,23 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-
       <h1 class="disp heading-xl">
         <span data-fr="Votre marchandise," data-ar="بضاعتك،">Votre marchandise,</span><br>
         <span class="text-amber" data-fr="chaque étape," data-ar="كل مرحلة،">chaque étape,</span><br>
         <span data-fr="un seul réseau." data-ar="شبكة واحدة.">un seul réseau.</span>
       </h1>
-
       <p class="lede" data-fr="LogiConnect DZ met en relation importateurs, exportateurs et prestataires logistiques de confiance — transitaires, compagnies maritimes, forwarders, transporteurs et assureurs, du dépôt de la demande jusqu'à la livraison." data-ar="تربط LogiConnect DZ المستوردين والمصدّرين بمزوّدي خدمات لوجستية موثوقين — وكلاء جمارك، شركات بحرية، وكلاء شحن، ناقلون وشركات تأمين، من إيداع الطلب إلى التسليم.">
         LogiConnect DZ met en relation importateurs, exportateurs et prestataires logistiques de confiance — transitaires, compagnies maritimes, forwarders, transporteurs et assureurs, du dépôt de la demande jusqu'à la livraison.
       </p>
-
       <div class="hero-actions">
         <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Je suis client →" data-ar="أنا عميل ←">Je suis client →</a>
         <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="Je suis prestataire →" data-ar="أنا مزوّد ←">Je suis prestataire →</a>
       </div>
     </div>
-
-    <div class="manifest-wrap">
-      <div class="manifest">
-        <div class="manifest-top">
-          <div>
-            <div class="label" data-fr="Bon de transit" data-ar="وثيقة النقل">Bon de transit</div>
-            <div class="value mono">N° LC-2026-00184</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="label" data-fr="Émis via" data-ar="صادر عبر">Émis via</div>
-            <div class="value mono">LogiConnect DZ</div>
-          </div>
-        </div>
-
-        <div class="manifest-route">
-          <svg viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="60" x2="402" y2="60" stroke="rgba(11,32,39,0.22)" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"/>
-            <circle cx="40" cy="60" r="19" fill="#0B2027"/>
-            <circle cx="140" cy="60" r="19" fill="#0B2027"/>
-            <circle cx="230" cy="60" r="19" fill="#0B2027"/>
-            <circle cx="320" cy="60" r="19" fill="#0B2027"/>
-            <circle cx="400" cy="60" r="19" fill="#0B2027"/>
-            <path d="M35 60l4 4 8-9" stroke="#E8A33D" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M140 52v16M132 60h16" stroke="#5AC2C0" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M223 68l7-16 7 16" stroke="#5AC2C0" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="313" y="55" width="14" height="10" rx="1.5" stroke="#5AC2C0" stroke-width="2" fill="none"/>
-            <path d="M400 51l7 4-7 4M393 55h14" stroke="#5AC2C0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="40" y="98" text-anchor="middle" class="mono" font-size="9" fill="rgba(11,32,39,0.62)" font-family="IBM Plex Mono, monospace" data-fr="Douane" data-ar="جمارك">Douane</text>
-            <text x="140" y="98" text-anchor="middle" font-size="9" fill="rgba(11,32,39,0.62)" font-family="IBM Plex Mono, monospace" data-fr="Maritime" data-ar="بحري">Maritime</text>
-            <text x="230" y="98" text-anchor="middle" font-size="9" fill="rgba(11,32,39,0.62)" font-family="IBM Plex Mono, monospace" data-fr="Forwarding" data-ar="شحن">Forwarding</text>
-            <text x="320" y="98" text-anchor="middle" font-size="9" fill="rgba(11,32,39,0.62)" font-family="IBM Plex Mono, monospace" data-fr="Route" data-ar="طريق">Route</text>
-            <text x="400" y="98" text-anchor="middle" font-size="9" fill="rgba(11,32,39,0.62)" font-family="IBM Plex Mono, monospace" data-fr="Assurance" data-ar="تأمين">Assurance</text>
-            <text x="18" y="128" font-size="9.5" letter-spacing="1.2" fill="rgba(11,32,39,0.4)" font-family="IBM Plex Mono, monospace" data-fr="CHARGEMENT" data-ar="التحميل">CHARGEMENT</text>
-            <text x="402" y="128" text-anchor="end" font-size="9.5" letter-spacing="1.2" fill="rgba(11,32,39,0.4)" font-family="IBM Plex Mono, monospace" data-fr="LIVRAISON" data-ar="التسليم">LIVRAISON</text>
-          </svg>
-        </div>
-
-        <div class="manifest-bottom">
-          <div>
-            <div class="label" data-fr="Prestataires mobilisés" data-ar="عدد المزوّدين">Prestataires mobilisés</div>
-            <div class="value">5</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="label" data-fr="Origine" data-ar="نقطة الانطلاق">Origine</div>
-            <div class="value" data-fr="Port d'Alger" data-ar="ميناء الجزائر">Port d'Alger</div>
-          </div>
-        </div>
-
-        <div class="stamp">
-          <div class="stamp-inner">
-            <div class="check">✓</div>
-            <div class="txt" data-fr="Validé" data-ar="معتمد">Validé</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item"><div class="number">100+</div><div class="label" data-fr="Prestataires actifs" data-ar="مزوّد نشط">Prestataires actifs</div></div>
-      <div class="stat-item"><div class="number">05</div><div class="label" data-fr="Catégories logistiques" data-ar="فئات لوجستية">Catégories logistiques</div></div>
-      <div class="stat-item"><div class="number">500+</div><div class="label" data-fr="Opérations conclues" data-ar="عملية منجزة">Opérations conclues</div></div>
-      <div class="stat-item"><div class="number">08</div><div class="label" data-fr="Villes couvertes" data-ar="مدن مغطاة">Villes couvertes</div></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ===== SERVICES / CATÉGORIES ===== -->
 <section id="services">
@@ -452,77 +360,80 @@
   </div>
 </section>
 
-<!-- ===== RÉSEAU INTERNATIONAL — CARTE MONDIALE COMPLÈTE ===== -->
+<!-- ===== RÉSEAU INTERNATIONAL ===== -->
 <section id="reseau" class="globe-section">
   <div class="container">
-    <div class="section-header" style="margin-left:auto;margin-right:auto;text-align:center;">
-      <span class="section-eyebrow" data-fr="Portée internationale" data-ar="امتداد دولي">Portée internationale</span>
-      <h2 class="disp heading-lg">
-        <span data-fr="L'Algérie," data-ar="الجزائر،">L'Algérie,</span>
-        <span class="text-teal" data-fr="connectée au monde" data-ar="متّصلة بالعالم">connectée au monde</span>
-      </h2>
-      <p style="margin-left:auto;margin-right:auto;" data-fr="Depuis Alger, Oran, Béjaïa, Skikda et Annaba, notre réseau couvre l'Europe, l'Asie, l'Amérique et l'Afrique." data-ar="انطلاقاً من الجزائر، وهران، بجاية،جيجل, سكيكدة وعنابة، تغطّي شبكتنا أوروبا وآسيا والأمريكتين وأفريقيا.">
-        Depuis Alger, Oran, Béjaïa ,Jijel, Skikda et Annaba, notre réseau couvre l'Europe, l'Asie, l'Amérique et l'Afrique.
-      </p>
-    </div>
-
-    <div class="globe-wrap">
-
-
-
-      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
-        <!-- grille du globe -->
-        <circle cx="450" cy="210" r="170" fill="none" stroke="var(--border)" stroke-width="1.2"/>
-        <ellipse cx="450" cy="210" rx="130" ry="170" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
-        <ellipse cx="450" cy="210" rx="65" ry="170" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
-        <line x1="450" y1="40" x2="450" y2="380" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
-        <line x1="312.5" y1="110" x2="587.5" y2="110" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
-        <line x1="287.5" y1="160" x2="612.5" y2="160" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
-        <line x1="280" y1="210" x2="620" y2="210" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
-        <line x1="287.5" y1="260" x2="612.5" y2="260" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
-        <line x1="312.5" y1="310" x2="587.5" y2="310" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
-
-        <!-- routes depuis Alger -->
-        <path d="M392,196 Q 410,150 432,148" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-        <path d="M392,196 Q 370,155 352,158" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-        <path d="M392,196 Q 440,140 472,152" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-        <path d="M392,196 Q 470,155 538,176" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-        <path d="M392,196 Q 520,150 606,192" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-        <path d="M392,196 Q 340,225 300,232" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
-
-        <!-- point d'origine : Alger -->
-        <circle cx="392" cy="196" r="6" fill="var(--amber)"/>
-        <circle cx="392" cy="196" r="11" fill="none" stroke="var(--amber)" stroke-width="1.4" opacity="0.5"/>
-        <text x="392" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--paper)" data-fr="ALGER" data-ar="الجزائر">ALGER</text>
-
-        <!-- destinations -->
-        <circle cx="432" cy="148" r="4" fill="var(--teal-light)"/>
-        <text x="432" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Marseille" data-ar="مرسيليا">Marseille</text>
-        <text x="432" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 24H" data-ar="~ 24 س">~ 24H</text>
-
-        <circle cx="352" cy="158" r="4" fill="var(--teal-light)"/>
-        <text x="352" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Barcelone" data-ar="برشلونة">Barcelone</text>
-        <text x="352" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 36H" data-ar="~ 36 س">~ 36H</text>
-
-        <circle cx="472" cy="152" r="4" fill="var(--teal-light)"/>
-        <text x="472" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Gênes" data-ar="جنوة">Gênes</text>
-        <text x="472" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 48H" data-ar="~ 48 س">~ 48H</text>
-
-        <circle cx="538" cy="176" r="4" fill="var(--teal-light)"/>
-        <text x="538" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Istanbul" data-ar="إسطنبول">Istanbul</text>
-        <text x="538" y="197" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 4J" data-ar="~ 4 أيام">~ 4J</text>
-
-        <circle cx="606" cy="192" r="4" fill="var(--teal-light)"/>
-        <text x="606" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Shanghai" data-ar="شنغهاي">Shanghai</text>
-        <text x="606" y="213" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 21J" data-ar="~ 21 يوم">~ 21J</text>
-
-        <circle cx="300" cy="232" r="4" fill="var(--teal-light)"/>
-        <text x="300" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="New York" data-ar="نيويورك">New York</text>
-        <text x="300" y="253" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 12J" data-ar="~ 12 يوم">~ 12J</text>
-      </svg>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;">
       
-      <div class="globe-caption" data-fr="Délais maritimes indicatifs. 5 ports algériens connectés à 17 destinations mondiales." data-ar="آجال بحرية إرشادية. 5 موانئ جزائرية متصلة بـ 17 وجهة عالمية.">
-        Délais maritimes indicatifs. 5 ports algériens connectés à 17 destinations mondiales.
+      <div>
+        <span class="section-eyebrow" data-fr="Portée internationale" data-ar="امتداد دولي">Portée internationale</span>
+        <h2 class="disp heading-lg" style="margin-bottom:16px;">
+          <span data-fr="Une couverture" data-ar="تغطية">Une couverture</span>
+          <span class="text-teal" data-fr="totale" data-ar="شاملة">totale</span>
+        </h2>
+        <div style="max-width:520px;">
+          <p style="margin-bottom:18px;line-height:1.7;">
+            <span style="color:var(--amber);font-weight:600;" data-fr="Maritime" data-ar="بحري">Maritime</span>
+            <span data-fr=" : une couverture mondiale. Grâce à nos partenariats avec les principales compagnies maritimes, LogiConnect DZ relie l'Algérie à des destinations sur tous les continents — Europe, Asie, Amérique, Afrique." data-ar=" : تغطية عالمية. بفضل شراكاتنا مع كبرى شركات الشحن البحري، تربط LogiConnect DZ الجزائر بوجهات في جميع القارات — أوروبا وآسيا والأمريكتين وأفريقيا.">
+              : une couverture mondiale. Grâce à nos partenariats avec les principales compagnies maritimes, LogiConnect DZ relie l'Algérie à des destinations sur tous les continents — Europe, Asie, Amérique, Afrique.
+            </span>
+          </p>
+          <p style="line-height:1.7;">
+            <span style="color:var(--teal-light);font-weight:600;" data-fr="National" data-ar="وطني">National</span>
+            <span data-fr=" : tout le territoire algérien couvert. Transporteurs, transitaires, assureurs et prestataires associés sont référencés sur l'ensemble du pays, pour un accompagnement complet du dépôt de la demande jusqu'à la livraison." data-ar=" : تغطية كامل التراب الوطني. الناقلون، وكلاء الجمارك، شركات التأمين والمزوّدون المرتبطون مرجعيون على مستوى جميع أنحاء البلاد، لمرافقة كاملة من إيداع الطلب إلى التسليم.">
+              : tout le territoire algérien couvert. Transporteurs, transitaires, assureurs et prestataires associés sont référencés sur l'ensemble du pays, pour un accompagnement complet du dépôt de la demande jusqu'à la livraison.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="globe-wrap" style="margin:0;">
+        <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="450" cy="210" r="170" fill="none" stroke="var(--border)" stroke-width="1.2"/>
+          <ellipse cx="450" cy="210" rx="130" ry="170" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
+          <ellipse cx="450" cy="210" rx="65" ry="170" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
+          <line x1="450" y1="40" x2="450" y2="380" stroke="var(--border)" stroke-width="1" opacity="0.6"/>
+          <line x1="312.5" y1="110" x2="587.5" y2="110" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
+          <line x1="287.5" y1="160" x2="612.5" y2="160" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
+          <line x1="280" y1="210" x2="620" y2="210" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
+          <line x1="287.5" y1="260" x2="612.5" y2="260" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
+          <line x1="312.5" y1="310" x2="587.5" y2="310" stroke="var(--border)" stroke-width="1" opacity="0.45"/>
+
+          <path d="M392,196 Q 410,150 432,148" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M392,196 Q 370,155 352,158" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M392,196 Q 440,140 472,152" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M392,196 Q 470,155 538,176" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M392,196 Q 520,150 606,192" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M392,196 Q 340,225 300,232" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>
+
+          <circle cx="392" cy="196" r="6" fill="var(--amber)"/>
+          <circle cx="392" cy="196" r="11" fill="none" stroke="var(--amber)" stroke-width="1.4" opacity="0.5"/>
+          <text x="392" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--paper)" data-fr="ALGER" data-ar="الجزائر">ALGER</text>
+
+          <circle cx="432" cy="148" r="4" fill="var(--teal-light)"/>
+          <text x="432" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Marseille" data-ar="مرسيليا">Marseille</text>
+          <text x="432" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 24H" data-ar="~ 24 س">~ 24H</text>
+
+          <circle cx="352" cy="158" r="4" fill="var(--teal-light)"/>
+          <text x="352" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Barcelone" data-ar="برشلونة">Barcelone</text>
+          <text x="352" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 36H" data-ar="~ 36 س">~ 36H</text>
+
+          <circle cx="472" cy="152" r="4" fill="var(--teal-light)"/>
+          <text x="472" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Gênes" data-ar="جنوة">Gênes</text>
+          <text x="472" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 48H" data-ar="~ 48 س">~ 48H</text>
+
+          <circle cx="538" cy="176" r="4" fill="var(--teal-light)"/>
+          <text x="538" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Istanbul" data-ar="إسطنبول">Istanbul</text>
+          <text x="538" y="197" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 4J" data-ar="~ 4 أيام">~ 4J</text>
+
+          <circle cx="606" cy="192" r="4" fill="var(--teal-light)"/>
+          <text x="606" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Shanghai" data-ar="شنغهاي">Shanghai</text>
+          <text x="606" y="213" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 21J" data-ar="~ 21 يوم">~ 21J</text>
+
+          <circle cx="300" cy="232" r="4" fill="var(--teal-light)"/>
+          <text x="300" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="New York" data-ar="نيويورك">New York</text>
+          <text x="300" y="253" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 12J" data-ar="~ 12 يوم">~ 12J</text>
+        </svg>
       </div>
     </div>
   </div>
@@ -580,7 +491,7 @@
         Rejoignez la communauté LogiConnect DZ et optimisez vos flux logistiques.
       </p>
       <div class="cta-actions">
-        <a href="https://platform.logiconnect-dz.com/auth/register"  class="btn btn-primary" data-fr="Créer un compte client" data-ar="إنشاء حساب عميل">Créer un compte client</a>
+        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Créer un compte client" data-ar="إنشاء حساب عميل">Créer un compte client</a>
         <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="S'inscrire comme prestataire" data-ar="التسجيل كمزوّد">S'inscrire comme prestataire</a>
       </div>
       <div style="margin-top:22px;font-size:0.9rem;color:var(--muted);">
@@ -594,30 +505,36 @@
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="container footer-inner">
-    <div class="logo" style="font-size:1rem;">
-      <span class="logo-mark" style="width:30px;height:30px;">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-      </span>
-      <span class="disp" style="font-size:0.95rem;">LogiConnect DZ</span>
+    <div class="footer-left">
+      <a href="/" class="logo" style="font-size:0.9rem;">
+        <span class="logo-mark" style="width:28px;height:28px;">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+        </span>
+        <span class="disp" style="font-size:0.85rem;">LogiConnect DZ</span>
+      </a>
+      <div class="footer-links">
+        <a href="#" data-fr="À propos" data-ar="حول">À propos</a>
+        <a href="#services" data-fr="Services" data-ar="الخدمات">Services</a>
+        <a href="#prestataires" data-fr="Prestataires" data-ar="المزوّدون">Prestataires</a>
+        <a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#" data-fr="À propos" data-ar="حول">À propos</a>
-      <a href="#services" data-fr="Services" data-ar="الخدمات">Services</a>
-      <a href="#prestataires" data-fr="Prestataires" data-ar="المزوّدون">Prestataires</a>
-      <a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+    <div class="footer-right">
+      <span class="footer-copy">© 2026 LOGICONNECT DZ · ALGÉRIE</span>
+      <span class="footer-divider">|</span>
+      <a href="mailto:zakaria.saadi.zs@gmail.com" class="mono">✉ zakaria.saadi.zs@gmail.com</a>
+      <span class="footer-divider">|</span>
+      <a href="tel:+213555689281" class="mono">📞 +213 555 68 92 81</a>
     </div>
-    <div class="footer-copy">© 2026 LOGICONNECT DZ · ALGER · ORAN · BÉJAÏA · SKIKDA · ANNABA</div>
   </div>
 </footer>
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-  // Menu mobile
   document.getElementById('menuToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // Bascule FR ↔ AR
   let currentLang = 'fr';
   const langToggle = document.getElementById('langToggle');
   const translatable = document.querySelectorAll('[data-fr][data-ar]');
@@ -626,7 +543,6 @@
     translatable.forEach(function (el) {
       el.textContent = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-ar');
     });
-
     if (lang === 'fr') {
       langToggle.textContent = 'AR';
       document.documentElement.lang = 'fr';
