@@ -100,6 +100,39 @@
   .logo-mark svg{width:19px;height:19px;stroke:var(--amber);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
   .logo-text .disp{font-size:1.05rem;letter-spacing:0.02em;}
 
+
+/* ============ LOGOS ============ */
+/* ============ LOGOS ============ */
+.logo-header {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.logo-footer {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-header {
+    height: 34px;
+  }
+  .logo-footer {
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-header {
+    height: 28px;
+  }
+  .logo-footer {
+    height: 20px;
+  }
+}
   .nav-links{display:flex;align-items:center;gap:34px;font-size:0.9rem;font-weight:500;}
   .nav-links a{color:var(--muted);transition:color 0.2s;position:relative;}
   .nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--amber);transition:width 0.25s ease;}
@@ -266,10 +299,7 @@
 <header>
   <div class="container header-inner">
     <a href="/" class="logo">
-      <span class="logo-mark">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-      </span>
-      <span class="logo-text disp">LogiConnect DZ</span>
+      <img src="logo_complet.png" alt="LogiConnect DZ" class="logo-header" />
     </a>
 
     <nav class="nav-links" id="navLinks">
@@ -412,27 +442,27 @@
 
           <circle cx="432" cy="148" r="4" fill="var(--teal-light)"/>
           <text x="432" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Marseille" data-ar="مرسيليا">Marseille</text>
-          <text x="432" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 24H" data-ar="~ 24 س">~ 24H</text>
+
 
           <circle cx="352" cy="158" r="4" fill="var(--teal-light)"/>
           <text x="352" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Barcelone" data-ar="برشلونة">Barcelone</text>
-          <text x="352" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 36H" data-ar="~ 36 س">~ 36H</text>
+
 
           <circle cx="472" cy="152" r="4" fill="var(--teal-light)"/>
           <text x="472" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Gênes" data-ar="جنوة">Gênes</text>
-          <text x="472" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 48H" data-ar="~ 48 س">~ 48H</text>
+
 
           <circle cx="538" cy="176" r="4" fill="var(--teal-light)"/>
           <text x="538" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Istanbul" data-ar="إسطنبول">Istanbul</text>
-          <text x="538" y="197" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 4J" data-ar="~ 4 أيام">~ 4J</text>
+
 
           <circle cx="606" cy="192" r="4" fill="var(--teal-light)"/>
           <text x="606" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Shanghai" data-ar="شنغهاي">Shanghai</text>
-          <text x="606" y="213" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 21J" data-ar="~ 21 يوم">~ 21J</text>
+
 
           <circle cx="300" cy="232" r="4" fill="var(--teal-light)"/>
           <text x="300" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="New York" data-ar="نيويورك">New York</text>
-          <text x="300" y="253" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--amber)" data-fr="~ 12J" data-ar="~ 12 يوم">~ 12J</text>
+
         </svg>
       </div>
     </div>
@@ -507,10 +537,9 @@
   <div class="container footer-inner">
     <div class="footer-left">
       <a href="/" class="logo" style="font-size:0.9rem;">
-        <span class="logo-mark" style="width:28px;height:28px;">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-        </span>
-        <span class="disp" style="font-size:0.85rem;">LogiConnect DZ</span>
+        <!-- Petit logo (juste l'icône) -->
+        <img src="logo.png" alt="LogiConnect DZ" class="logo-footer" />
+        <span class="disp" style="font-size:0.85rem; margin-left:8px;">LogiConnect DZ</span>
       </a>
       <div class="footer-links">
         <a href="#" data-fr="À propos" data-ar="حول">À propos</a>
