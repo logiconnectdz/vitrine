@@ -255,6 +255,16 @@
   .footer-divider{color:var(--border);font-size:0.7rem;}
   .footer-copy{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);}
 
+
+  .linkedin-link{
+  color:var(--muted);
+  transition:color 0.2s ease;
+}
+
+.linkedin-link:hover{
+  color:var(--teal-light);
+}
+
   /* ============ RESPONSIVE ============ */
   @media (max-width:960px){
     .hero-grid{grid-template-columns:1fr;}
@@ -566,6 +576,17 @@
       <a href="mailto:contact@logiconnect-dz.com" class="mono">✉ contact@logiconnect-dz.com</a>
       <span class="footer-divider">|</span>
       <a href="tel:+213792758544" class="mono" dir="ltr">📞 +213 792 75 85 44</a>
+      <span class="footer-divider">|</span>
+
+  <a
+    href="https://www.linkedin.com/company/logiconnect-dz"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mono linkedin-link"
+    aria-label="LogiConnect DZ sur LinkedIn"
+  >
+    in LinkedIn
+  </a>
     </div>
   </div>
 </footer>
