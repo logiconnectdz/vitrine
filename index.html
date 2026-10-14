@@ -146,6 +146,14 @@
     cursor:pointer;transition:all 0.2s;font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;
   }
   .lang-toggle:hover{border-color:var(--amber);color:var(--amber);}
+  .lang-picker{position:relative;}
+  .lang-toggle{display:flex;align-items:center;gap:8px;}
+  .lang-toggle::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);}
+  .lang-toggle[aria-expanded="true"]{border-color:var(--amber);color:var(--amber);}
+  .lang-menu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;min-width:150px;padding:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,0.25);}
+  .lang-menu button{display:block;width:100%;padding:10px 12px;border:0;border-radius:6px;background:transparent;color:var(--paper);font:inherit;font-size:0.85rem;text-align:start;cursor:pointer;}
+  .lang-menu button:hover,.lang-menu button:focus-visible{background:var(--surface2);color:var(--teal-light);}
+  .lang-menu button[aria-pressed="true"]{background:var(--surface2);color:var(--amber);}
   .mobile-toggle{display:none;background:none;border:none;color:var(--paper);font-size:1.5rem;cursor:pointer;padding:4px;}
 
   /* ============ HERO ============ */
@@ -313,17 +321,24 @@
     </a>
 
     <nav class="nav-links" id="navLinks">
-      <a href="#services" data-fr="Services" data-ar="الخدمات">Services</a>
-      <a href="#prestataires" data-fr="Prestataires" data-ar="المزوّدون">Prestataires</a>
-      <a href="#reseau" data-fr="Réseau" data-ar="الشبكة">Réseau</a>
-      <a href="#fonctionnalites" data-fr="Fonctionnalités" data-ar="المميزات">Fonctionnalités</a>
-      <a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+      <a href="#services" data-fr="Services" data-en="Services" data-ar="الخدمات">Services</a>
+      <a href="#prestataires" data-fr="Prestataires" data-en="Providers" data-ar="المزوّدون">Prestataires</a>
+      <a href="#reseau" data-fr="Réseau" data-en="Network" data-ar="الشبكة">Réseau</a>
+      <a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features" data-ar="المميزات">Fonctionnalités</a>
+      <a href="#contact" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <button type="button" class="lang-toggle" id="langToggle" aria-label="Changer de langue">AR</button>
-      <a href="https://platform.logiconnect-dz.com/auth/login" class="btn btn-outline" style="padding:9px 20px;" data-fr="Connexion" data-ar="تسجيل الدخول">Connexion</a>
-      <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" style="padding:9px 20px;" data-fr="S'inscrire" data-ar="إنشاء حساب">S'inscrire</a>
+      <div class="lang-picker" id="langPicker">
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Changer de langue" aria-expanded="false" aria-controls="langMenu">FR</button>
+        <div class="lang-menu" id="langMenu" hidden>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+          <button type="button" data-lang="ar" lang="ar" aria-pressed="false">العربية</button>
+          <button type="button" data-lang="fr" lang="fr" aria-pressed="true">Français</button>
+        </div>
+      </div>
+      <a href="https://platform.logiconnect-dz.com/auth/login" class="btn btn-outline" style="padding:9px 20px;" data-fr="Connexion" data-en="Log in" data-ar="تسجيل الدخول">Connexion</a>
+      <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" style="padding:9px 20px;" data-fr="S'inscrire" data-en="Sign up" data-ar="إنشاء حساب">S'inscrire</a>
       <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Menu">☰</button>
     </div>
   </div>
@@ -334,16 +349,16 @@
   <div class="container hero-grid">
     <div>
       <h1 class="disp heading-xl">
-        <span data-fr="Votre marchandise," data-ar="بضاعتك،">Votre marchandise,</span><br>
-        <span class="text-amber" data-fr="chaque étape," data-ar="كل مرحلة،">chaque étape,</span><br>
-        <span data-fr="un seul réseau." data-ar="شبكة واحدة.">un seul réseau.</span>
+        <span data-fr="Votre marchandise," data-en="Your cargo," data-ar="بضاعتك،">Votre marchandise,</span><br>
+        <span class="text-amber" data-fr="chaque étape," data-en="every step," data-ar="كل مرحلة،">chaque étape,</span><br>
+        <span data-fr="un seul réseau." data-en="one network." data-ar="شبكة واحدة.">un seul réseau.</span>
       </h1>
-      <p class="lede" data-fr="LogiConnect DZ met en relation importateurs, exportateurs et prestataires logistiques de confiance — transitaires, compagnies maritimes, forwarders, transporteurs , prestataires de stockage et assureurs, du dépôt de la demande jusqu'à la livraison." data-ar="تربط LogiConnect DZ المستوردين والمصدّرين بمزوّدي خدمات لوجستية موثوقين — وكلاء جمارك، شركات بحرية، وكلاء شحن، مزوّدي خدمات التخزين, ناقلون وشركات تأمين، من إيداع الطلب إلى التسليم.">
+      <p class="lede" data-fr="LogiConnect DZ met en relation importateurs, exportateurs et prestataires logistiques de confiance — transitaires, compagnies maritimes, forwarders, transporteurs , prestataires de stockage et assureurs, du dépôt de la demande jusqu'à la livraison." data-en="LogiConnect DZ connects importers and exporters with trusted logistics providers — customs brokers, shipping lines, freight forwarders, carriers, storage providers and insurers, from submitting a request to delivery." data-ar="تربط LogiConnect DZ المستوردين والمصدّرين بمزوّدي خدمات لوجستية موثوقين — وكلاء جمارك، شركات بحرية، وكلاء شحن، مزوّدي خدمات التخزين, ناقلون وشركات تأمين، من إيداع الطلب إلى التسليم.">
         LogiConnect DZ met en relation importateurs, exportateurs et prestataires logistiques de confiance — transitaires, compagnies maritimes, forwarders, prestataires de stockage et assureurs, du dépôt de la demande jusqu'à la livraison.
       </p>
       <div class="hero-actions">
-        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Je suis client →" data-ar="أنا عميل ←">Je suis client →</a>
-        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="Je suis prestataire →" data-ar="أنا مزوّد ←">Je suis prestataire →</a>
+        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Je suis client →" data-en="I&#x27;m a client →" data-ar="أنا عميل ←">Je suis client →</a>
+        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="Je suis prestataire →" data-en="I&#x27;m a provider →" data-ar="أنا مزوّد ←">Je suis prestataire →</a>
       </div>
     </div>
   </div>
@@ -355,57 +370,57 @@
 <section id="services">
   <div class="container">
     <div class="section-header">
-      <span class="section-eyebrow" data-fr="Prestataires" data-ar="المزوّدون">Prestataires</span>
+      <span class="section-eyebrow" data-fr="Prestataires" data-en="Providers" data-ar="المزوّدون">Prestataires</span>
       <h2 class="disp heading-lg">
-        <span data-fr="Six métiers," data-ar="ست مهن،">Six métiers,</span>
-        <span class="text-teal" data-fr="une seule demande" data-ar="طلب واحد">une seule demande</span>
+        <span data-fr="Six métiers," data-en="Six specialties," data-ar="ست مهن،">Six métiers,</span>
+        <span class="text-teal" data-fr="une seule demande" data-en="one request" data-ar="طلب واحد">une seule demande</span>
       </h2>
-      <p data-fr="Chaque maillon de la chaîne logistique est représenté et vérifié avant de rejoindre le réseau." data-ar="كل حلقة من سلسلة التوريد ممثّلة ومُتحقّق منها قبل الانضمام إلى الشبكة.">
+      <p data-fr="Chaque maillon de la chaîne logistique est représenté et vérifié avant de rejoindre le réseau." data-en="Every link in the logistics chain is represented and verified before joining the network." data-ar="كل حلقة من سلسلة التوريد ممثّلة ومُتحقّق منها قبل الانضمام إلى الشبكة.">
         Chaque maillon de la chaîne logistique est représenté et vérifié avant de rejoindre le réseau.
       </p>
     </div>
 
     <div class="categories-grid" id="prestataires">
       <div class="category-card">
-        <span class="category-index mono" data-fr="01 · Douane" data-ar="01 · الجمارك">01 · Douane</span>
+        <span class="category-index mono" data-fr="01 · Douane" data-en="01 · Customs" data-ar="01 · الجمارك">01 · Douane</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
-        <h3 data-fr="Transitaire" data-ar="وكيل جمارك">Transitaire</h3>
-        <p data-fr="Dédouanement, formalités, réception" data-ar="تخليص جمركي، إجراءات، استلام">Dédouanement, formalités, réception</p>
+        <h3 data-fr="Transitaire" data-en="Customs broker" data-ar="وكيل جمارك">Transitaire</h3>
+        <p data-fr="Dédouanement, formalités, réception" data-en="Customs clearance, paperwork, receipt of goods" data-ar="تخليص جمركي، إجراءات، استلام">Dédouanement, formalités, réception</p>
       </div>
       <div class="category-card">
-        <span class="category-index mono" data-fr="02 · Mer" data-ar="02 · البحر">02 · Mer</span>
+        <span class="category-index mono" data-fr="02 · Mer" data-en="02 · Sea" data-ar="02 · البحر">02 · Mer</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 20l1-8h12l1 8"/><path d="M12 3v9"/><path d="M9 7h6"/></svg></div>
-        <h3 data-fr="Compagnie maritime" data-ar="شركة بحرية">Compagnie maritime</h3>
-        <p data-fr="Fret maritime, conteneurs, lignes régulières" data-ar="شحن بحري، حاويات، خطوط منتظمة">Fret maritime, conteneurs, lignes régulières</p>
+        <h3 data-fr="Compagnie maritime" data-en="Shipping line" data-ar="شركة بحرية">Compagnie maritime</h3>
+        <p data-fr="Fret maritime, conteneurs, lignes régulières" data-en="Ocean freight, containers, scheduled services" data-ar="شحن بحري، حاويات، خطوط منتظمة">Fret maritime, conteneurs, lignes régulières</p>
       </div>
       <div class="category-card">
-        <span class="category-index mono" data-fr="03 · Réseau" data-ar="03 · الشبكة">03 · Réseau</span>
+        <span class="category-index mono" data-fr="03 · Réseau" data-en="03 · Network" data-ar="03 · الشبكة">03 · Réseau</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="21"/><path d="M5 12a7 7 0 0 0 14 0"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg></div>
-        <h3 data-fr="Freight forwarder" data-ar="وكيل شحن">Freight forwarder</h3>
-        <p data-fr="Multimodal, groupage, pilotage" data-ar="متعدد الوسائط، تجميع، توجيه">Multimodal, groupage, pilotage</p>
+        <h3 data-fr="Freight forwarder" data-en="Freight forwarder" data-ar="وكيل شحن">Freight forwarder</h3>
+        <p data-fr="Multimodal, groupage, pilotage" data-en="Multimodal transport, consolidation, coordination" data-ar="متعدد الوسائط، تجميع، توجيه">Multimodal, groupage, pilotage</p>
       </div>
       <div class="category-card">
-        <span class="category-index mono" data-fr="04 · Route" data-ar="04 · الطرق">04 · Route</span>
+        <span class="category-index mono" data-fr="04 · Route" data-en="04 · Road" data-ar="04 · الطرق">04 · Route</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><rect x="1" y="7" width="13" height="10" rx="1"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></div>
-        <h3 data-fr="Transporteur" data-ar="ناقل">Transporteur</h3>
-        <p data-fr="Routier, frigorifique, plateau, citerne" data-ar="بري، مبرّد، سطح، صهريج">Routier, frigorifique, plateau, citerne</p>
+        <h3 data-fr="Transporteur" data-en="Carrier" data-ar="ناقل">Transporteur</h3>
+        <p data-fr="Routier, frigorifique, plateau, citerne" data-en="Road haulage, refrigerated, flatbed, tanker" data-ar="بري، مبرّد، سطح، صهريج">Routier, frigorifique, plateau, citerne</p>
       </div>
       <div class="category-card">
-        <span class="category-index mono" data-fr="05 · Couverture" data-ar="05 · التغطية">05 · Couverture</span>
+        <span class="category-index mono" data-fr="05 · Couverture" data-en="05 · Coverage" data-ar="05 · التغطية">05 · Couverture</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3 data-fr="Assurance" data-ar="تأمين">Assurance</h3>
+        <h3 data-fr="Assurance" data-en="Insurance" data-ar="تأمين">Assurance</h3>
 
-<p data-fr="Transport maritime, aérien et terrestre"
+<p data-fr="Transport maritime, aérien et terrestre" data-en="Sea, air and land transport"
    data-ar="النقل البحري والجوي والبري">
   Transport maritime, aérien et terrestre
 </p>
 
       </div>
       <div class="category-card">
-        <span class="category-index mono" data-fr="06 · Stockage" data-ar="06 · التخزين">06 · Stockage</span>
+        <span class="category-index mono" data-fr="06 · Stockage" data-en="06 · Storage" data-ar="06 · التخزين">06 · Stockage</span>
         <div class="category-icon"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M7 21v-8h10v8"/><path d="M7 10h10"/></svg></div>
-        <h3 data-fr="Espace de stockage" data-ar="مساحات التخزين">Espace de stockage</h3>
-        <p data-fr="Entreposage, stockage sec, frigorifique et services associés"  data-ar="التخزين، التخزين الجاف والمبرد والخدمات المرتبطة">  Entreposage, stockage sec, frigorifique et services associés</p>
+        <h3 data-fr="Espace de stockage" data-en="Storage space" data-ar="مساحات التخزين">Espace de stockage</h3>
+        <p data-fr="Entreposage, stockage sec, frigorifique et services associés" data-en="Warehousing, dry and refrigerated storage, and related services"  data-ar="التخزين، التخزين الجاف والمبرد والخدمات المرتبطة">  Entreposage, stockage sec, frigorifique et services associés</p>
       </div>
     </div>
   </div>
@@ -417,21 +432,21 @@
     <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;">
       
       <div>
-        <span class="section-eyebrow" data-fr="Portée internationale" data-ar="امتداد دولي">Portée internationale</span>
+        <span class="section-eyebrow" data-fr="Portée internationale" data-en="International reach" data-ar="امتداد دولي">Portée internationale</span>
         <h2 class="disp heading-lg" style="margin-bottom:16px;">
-          <span data-fr="Une couverture" data-ar="تغطية">Une couverture</span>
-          <span class="text-teal" data-fr="totale" data-ar="شاملة">totale</span>
+          <span data-fr="Une couverture" data-en="Complete" data-ar="تغطية">Une couverture</span>
+          <span class="text-teal" data-fr="totale" data-en="coverage" data-ar="شاملة">totale</span>
         </h2>
         <div style="max-width:520px;">
           <p style="margin-bottom:18px;line-height:1.7;">
-            <span style="color:var(--amber);font-weight:600;" data-fr="Maritime" data-ar="بحري">Maritime</span>
-            <span data-fr=" : une couverture mondiale. Grâce à nos partenariats avec les principales compagnies maritimes, LogiConnect DZ relie l'Algérie à des destinations sur tous les continents — Europe, Asie, Amérique, Afrique." data-ar=" : تغطية عالمية. بفضل شراكاتنا مع كبرى شركات الشحن البحري، تربط LogiConnect DZ الجزائر بوجهات في جميع القارات — أوروبا وآسيا والأمريكتين وأفريقيا.">
+            <span style="color:var(--amber);font-weight:600;" data-fr="Maritime" data-en="Maritime" data-ar="بحري">Maritime</span>
+            <span data-fr=" : une couverture mondiale. Grâce à nos partenariats avec les principales compagnies maritimes, LogiConnect DZ relie l'Algérie à des destinations sur tous les continents — Europe, Asie, Amérique, Afrique." data-en=" : worldwide coverage. Through partnerships with leading shipping lines, LogiConnect DZ connects Algeria to destinations across continents — Europe, Asia, the Americas and Africa." data-ar=" : تغطية عالمية. بفضل شراكاتنا مع كبرى شركات الشحن البحري، تربط LogiConnect DZ الجزائر بوجهات في جميع القارات — أوروبا وآسيا والأمريكتين وأفريقيا.">
               : une couverture mondiale. Grâce à nos partenariats avec les principales compagnies maritimes, LogiConnect DZ relie l'Algérie à des destinations sur tous les continents — Europe, Asie, Amérique, Afrique.
             </span>
           </p>
           <p style="line-height:1.7;">
-            <span style="color:var(--teal-light);font-weight:600;" data-fr="National" data-ar="وطني">National</span>
-            <span data-fr=" : tout le territoire algérien couvert. Transporteurs, transitaires, assureurs et prestataires associés sont référencés sur l'ensemble du pays, pour un accompagnement complet du dépôt de la demande jusqu'à la livraison." data-ar=" : تغطية كامل التراب الوطني. الناقلون، وكلاء الجمارك، شركات التأمين والمزوّدون المرتبطون مُدرجون في جميع أنحاء البلاد، لمرافقة كاملة من إيداع الطلب إلى التسليم.">
+            <span style="color:var(--teal-light);font-weight:600;" data-fr="National" data-en="Domestic" data-ar="وطني">National</span>
+            <span data-fr=" : tout le territoire algérien couvert. Transporteurs, transitaires, assureurs et prestataires associés sont référencés sur l'ensemble du pays, pour un accompagnement complet du dépôt de la demande jusqu'à la livraison." data-en=" : coverage across Algeria. Carriers, customs brokers, insurers and related providers are listed throughout the country, offering comprehensive support from submitting a request to delivery." data-ar=" : تغطية كامل التراب الوطني. الناقلون، وكلاء الجمارك، شركات التأمين والمزوّدون المرتبطون مُدرجون في جميع أنحاء البلاد، لمرافقة كاملة من إيداع الطلب إلى التسليم.">
               : tout le territoire algérien couvert. Transporteurs, transitaires, assureurs et prestataires associés sont référencés sur l'ensemble du pays, pour un accompagnement complet du dépôt de la demande jusqu'à la livraison.
             </span>
           </p>
@@ -459,30 +474,30 @@
 
           <circle cx="392" cy="196" r="6" fill="var(--amber)"/>
           <circle cx="392" cy="196" r="11" fill="none" stroke="var(--amber)" stroke-width="1.4" opacity="0.5"/>
-          <text x="392" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--paper)" data-fr="ALGER" data-ar="الجزائر">ALGER</text>
+          <text x="392" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--paper)" data-fr="ALGER" data-en="ALGIERS" data-ar="الجزائر">ALGER</text>
 
           <circle cx="432" cy="148" r="4" fill="var(--teal-light)"/>
-          <text x="432" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Marseille" data-ar="مرسيليا">Marseille</text>
+          <text x="432" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Marseille" data-en="Marseille" data-ar="مرسيليا">Marseille</text>
 
 
           <circle cx="352" cy="158" r="4" fill="var(--teal-light)"/>
-          <text x="352" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Barcelone" data-ar="برشلونة">Barcelone</text>
+          <text x="352" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Barcelone" data-en="Barcelona" data-ar="برشلونة">Barcelone</text>
 
 
           <circle cx="472" cy="152" r="4" fill="var(--teal-light)"/>
-          <text x="472" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Gênes" data-ar="جنوة">Gênes</text>
+          <text x="472" y="142" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Gênes" data-en="Genoa" data-ar="جنوة">Gênes</text>
 
 
           <circle cx="538" cy="176" r="4" fill="var(--teal-light)"/>
-          <text x="538" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Istanbul" data-ar="إسطنبول">Istanbul</text>
+          <text x="538" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Istanbul" data-en="Istanbul" data-ar="إسطنبول">Istanbul</text>
 
 
           <circle cx="606" cy="192" r="4" fill="var(--teal-light)"/>
-          <text x="606" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Shanghai" data-ar="شنغهاي">Shanghai</text>
+          <text x="606" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="Shanghai" data-en="Shanghai" data-ar="شنغهاي">Shanghai</text>
 
 
           <circle cx="300" cy="232" r="4" fill="var(--teal-light)"/>
-          <text x="300" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="New York" data-ar="نيويورك">New York</text>
+          <text x="300" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)" data-fr="New York" data-en="New York" data-ar="نيويورك">New York</text>
 
         </svg>
       </div>
@@ -494,12 +509,12 @@
 <section id="fonctionnalites" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
     <div class="section-header">
-      <span class="section-eyebrow" data-fr="Fonctionnalités" data-ar="المميزات">Fonctionnalités</span>
+      <span class="section-eyebrow" data-fr="Fonctionnalités" data-en="Features" data-ar="المميزات">Fonctionnalités</span>
       <h2 class="disp heading-lg">
-        <span data-fr="Pensée pour" data-ar="مصمّمة من أجل">Pensée pour</span>
-        <span class="text-amber" data-fr="le terrain" data-ar="الميدان">le terrain</span>
+        <span data-fr="Pensée pour" data-en="Built for" data-ar="مصمّمة من أجل">Pensée pour</span>
+        <span class="text-amber" data-fr="le terrain" data-en="real operations" data-ar="الميدان">le terrain</span>
       </h2>
-      <p data-fr="Simplifiez vos opérations et gagnez en visibilité, du premier devis à la livraison." data-ar="بسّط عملياتك واكسب وضوحاً، من أول عرض سعر إلى التسليم.">
+      <p data-fr="Simplifiez vos opérations et gagnez en visibilité, du premier devis à la livraison." data-en="Simplify your operations and gain visibility, from the first quote to delivery." data-ar="بسّط عملياتك واكسب وضوحاً، من أول عرض سعر إلى التسليم.">
         Simplifiez vos opérations et gagnez en visibilité, du premier devis à la livraison.
       </p>
     </div>
@@ -507,22 +522,22 @@
     <div class="features-list">
       <div class="feature-row">
         <div class="tag mono">01</div>
-        <h3 data-fr="Recherche intelligente" data-ar="بحث ذكي">Recherche intelligente</h3>
-        <p data-fr="Trouvez le prestataire idéal par catégorie, ville ou spécialité, filtré selon vos critères réels de fret." data-ar="ابحث عن المزوّد المثالي حسب الفئة، المدينة أو التخصص، مع فلترة حسب معايير شحنك الفعلية.">
+        <h3 data-fr="Recherche intelligente" data-en="Smart search" data-ar="بحث ذكي">Recherche intelligente</h3>
+        <p data-fr="Trouvez le prestataire idéal par catégorie, ville ou spécialité, filtré selon vos critères réels de fret." data-en="Find the right provider by category, city or specialty, filtered to match your freight requirements." data-ar="ابحث عن المزوّد المثالي حسب الفئة، المدينة أو التخصص، مع فلترة حسب معايير شحنك الفعلية.">
           Trouvez le prestataire idéal par catégorie, ville ou spécialité, filtré selon vos critères réels de fret.
         </p>
       </div>
       <div class="feature-row">
         <div class="tag mono">02</div>
-        <h3 data-fr="Devis en quelques clics" data-ar="عروض أسعار بنقرات">Devis en quelques clics</h3>
-        <p data-fr="Des formulaires adaptés à chaque métier pour des demandes précises et des réponses plus rapides." data-ar="نماذج مخصّصة لكل مهنة لطلبات دقيقة وردود أسرع.">
+        <h3 data-fr="Devis en quelques clics" data-en="Quotes in a few clicks" data-ar="عروض أسعار بنقرات">Devis en quelques clics</h3>
+        <p data-fr="Des formulaires adaptés à chaque métier pour des demandes précises et des réponses plus rapides." data-en="Forms tailored to each specialty for precise requests and faster responses." data-ar="نماذج مخصّصة لكل مهنة لطلبات دقيقة وردود أسرع.">
           Des formulaires adaptés à chaque métier pour des demandes précises et des réponses plus rapides.
         </p>
       </div>
       <div class="feature-row">
         <div class="tag mono">03</div>
-        <h3 data-fr="Suivi des demandes" data-ar="تتبّع الطلبات">Suivi des demandes</h3>
-        <p data-fr="Centralisez vos devis, échanges et réponses dans un espace unique, du premier contact à la livraison." data-ar="ركّز عروضك ومراسلاتك وردودك في مساحة واحدة، من أول تواصل إلى التسليم.">
+        <h3 data-fr="Suivi des demandes" data-en="Request tracking" data-ar="تتبّع الطلبات">Suivi des demandes</h3>
+        <p data-fr="Centralisez vos devis, échanges et réponses dans un espace unique, du premier contact à la livraison." data-en="Keep your quotes, conversations and responses in one place, from first contact to delivery." data-ar="ركّز عروضك ومراسلاتك وردودك في مساحة واحدة، من أول تواصل إلى التسليم.">
           Centralisez vos devis, échanges et réponses dans un espace unique, du premier contact à la livraison.
         </p>
       </div>
@@ -535,19 +550,19 @@
   <div class="container">
     <div class="cta-section">
       <h2 class="disp heading-lg">
-        <span data-fr="Prêt à faire avancer" data-ar="هل أنت مستعد لتحريك">Prêt à faire avancer</span><br>
-        <span class="text-amber" data-fr="votre marchandise ?" data-ar="بضاعتك؟">votre marchandise ?</span>
+        <span data-fr="Prêt à faire avancer" data-en="Ready to move" data-ar="هل أنت مستعد لتحريك">Prêt à faire avancer</span><br>
+        <span class="text-amber" data-fr="votre marchandise ?" data-en="your cargo?" data-ar="بضاعتك؟">votre marchandise ?</span>
       </h2>
-      <p data-fr="Rejoignez la communauté LogiConnect DZ et optimisez vos flux logistiques." data-ar="انضمّ إلى مجتمع LogiConnect DZ وحسّن تدفقاتك اللوجستية.">
+      <p data-fr="Rejoignez la communauté LogiConnect DZ et optimisez vos flux logistiques." data-en="Join the LogiConnect DZ community and optimize your logistics flows." data-ar="انضمّ إلى مجتمع LogiConnect DZ وحسّن تدفقاتك اللوجستية.">
         Rejoignez la communauté LogiConnect DZ et optimisez vos flux logistiques.
       </p>
       <div class="cta-actions">
-        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Créer un compte client" data-ar="إنشاء حساب عميل">Créer un compte client</a>
-        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="S'inscrire comme prestataire" data-ar="التسجيل كمزوّد">S'inscrire comme prestataire</a>
+        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-primary" data-fr="Créer un compte client" data-en="Create a client account" data-ar="إنشاء حساب عميل">Créer un compte client</a>
+        <a href="https://platform.logiconnect-dz.com/auth/register" class="btn btn-outline" data-fr="S'inscrire comme prestataire" data-en="Sign up as a provider" data-ar="التسجيل كمزوّد">S'inscrire comme prestataire</a>
       </div>
       <div style="margin-top:22px;font-size:0.9rem;color:var(--muted);">
-        <span data-fr="Déjà membre ?" data-ar="هل لديك حساب بالفعل؟">Déjà membre ?</span>
-        <a href="https://platform.logiconnect-dz.com/auth/login" class="cta-link" data-fr="Se connecter" data-ar="تسجيل الدخول">Se connecter</a>
+        <span data-fr="Déjà membre ?" data-en="Already a member?" data-ar="هل لديك حساب بالفعل؟">Déjà membre ?</span>
+        <a href="https://platform.logiconnect-dz.com/auth/login" class="cta-link" data-fr="Se connecter" data-en="Log in" data-ar="تسجيل الدخول">Se connecter</a>
       </div>
     </div>
   </div>
@@ -563,10 +578,10 @@
         <span class="disp" style="font-size:0.85rem; margin-left:8px;">LogiConnect DZ</span>
       </a>
       <div class="footer-links">
-        <a href="#" data-fr="À propos" data-ar="حول">À propos</a>
-        <a href="#services" data-fr="Services" data-ar="الخدمات">Services</a>
-        <a href="#prestataires" data-fr="Prestataires" data-ar="المزوّدون">Prestataires</a>
-        <a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+        <a href="#" data-fr="À propos" data-en="About" data-ar="حول">À propos</a>
+        <a href="#services" data-fr="Services" data-en="Services" data-ar="الخدمات">Services</a>
+        <a href="#prestataires" data-fr="Prestataires" data-en="Providers" data-ar="المزوّدون">Prestataires</a>
+        <a href="#contact" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
       </div>
     </div>
     <div class="footer-right">
@@ -596,28 +611,55 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  let currentLang = 'fr';
   const langToggle = document.getElementById('langToggle');
-  const translatable = document.querySelectorAll('[data-fr][data-ar]');
+  const langPicker = document.getElementById('langPicker');
+  const langMenu = document.getElementById('langMenu');
+  const langOptions = langMenu.querySelectorAll('[data-lang]');
+  const translatable = document.querySelectorAll('[data-fr][data-ar][data-en]');
 
   function updateLanguage(lang) {
     translatable.forEach(function (el) {
-      el.textContent = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-ar');
+      el.textContent = el.getAttribute('data-' + lang);
     });
-    if (lang === 'fr') {
-      langToggle.textContent = 'AR';
-      document.documentElement.lang = 'fr';
-      document.body.dir = 'ltr';
-    } else {
-      langToggle.textContent = 'FR';
-      document.documentElement.lang = 'ar';
-      document.body.dir = 'rtl';
-    }
-    currentLang = lang;
+    langToggle.textContent = lang.toUpperCase();
+    langOptions.forEach(function (option) {
+      option.setAttribute('aria-pressed', String(option.getAttribute('data-lang') === lang));
+    });
+    document.documentElement.lang = lang;
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  }
+
+  function closeLanguageMenu() {
+    langMenu.hidden = true;
+    langToggle.setAttribute('aria-expanded', 'false');
   }
 
   langToggle.addEventListener('click', function () {
-    updateLanguage(currentLang === 'fr' ? 'ar' : 'fr');
+    langMenu.hidden = !langMenu.hidden;
+    langToggle.setAttribute('aria-expanded', String(!langMenu.hidden));
+  });
+
+  langOptions.forEach(function (option) {
+    option.addEventListener('click', function () {
+      updateLanguage(option.getAttribute('data-lang'));
+      closeLanguageMenu();
+      langToggle.focus();
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!langPicker.contains(event.target)) closeLanguageMenu();
+  });
+
+  langPicker.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeLanguageMenu();
+      langToggle.focus();
+    }
+  });
+
+  langPicker.addEventListener('focusout', function (event) {
+    if (!langPicker.contains(event.relatedTarget)) closeLanguageMenu();
   });
 
   updateLanguage('fr');
